@@ -33,7 +33,7 @@
 
 import numpy as np
 
-def featureFormat( dictionary, features, remove_NaN=True, remove_all_zeroes=True, remove_any_zeroes=False, sort_keys = False):
+def featureFormat( dictionary, features, remove_NaN=True, remove_all_zeroes=True, remove_any_zeroes=False, sort_keys = False, debug=False):
     """ convert dictionary to numpy array of features
         remove_NaN = True will convert "NaN" string to 0.0
         remove_all_zeroes = True will omit any data points for which
@@ -60,8 +60,10 @@ def featureFormat( dictionary, features, remove_NaN=True, remove_all_zeroes=True
         keys = sorted(dictionary.keys())
     else:
         keys = list(dictionary.keys())
-
+    count = 0
     for key in keys:
+        if debug and count == 0:
+            print(dictionary[key].keys())
         tmp_list = []
         for feature in features:
             try:
@@ -98,7 +100,7 @@ def featureFormat( dictionary, features, remove_NaN=True, remove_all_zeroes=True
         ### Append the data point if flagged for addition.
         if append:
             return_list.append( np.array(tmp_list) )
-
+        count = count+1
     return np.array(return_list)
 
 
