@@ -57,7 +57,7 @@ for name, from_person in [("sara", from_sara), ("chris", from_chris)]:
 
             ### use str.replace() to remove any instances of the words
             ### ["sara", "shackleton", "chris", "germani"]
-            for rep in ["sara", "shackleton", "chris", "germani","\n","\r","\t"]:
+            for rep in ["sara", "shackleton", "chris", "germani", "sshacklensf","cgermannsf","\n","\r","\t"]:
                 words = words.replace(rep, "")
 
 

@@ -18,7 +18,7 @@ from sklearn.metrics import accuracy_score
 def classifyTree(features_train, labels_train,min_samples_split_arg=2): 
     from sklearn import tree
     clf = tree.DecisionTreeClassifier(min_samples_split=min_samples_split_arg)
-    clf.fit(features_train, labels_train)  
+   # clf.fit(features_train, labels_train)
     return clf
 ### features_train and features_test are the features for the training
 ### and testing datasets, respectively

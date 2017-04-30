@@ -2,8 +2,19 @@
 
 import pickle
 import numpy
+
+from sklearn.metrics import accuracy_score
+from sklearn import tree
+
+
+
 numpy.random.seed(42)
 
+def classifyTree(features_train, labels_train,min_samples_split_arg=2):
+
+    clf = tree.DecisionTreeClassifier(min_samples_split=min_samples_split_arg)
+    clf.fit(features_train, labels_train)
+    return clf
 
 ### The words (features) and authors (labels), already largely processed.
 ### These files should have been created from the previous (Lesson 10)
@@ -38,6 +49,17 @@ labels_train   = labels_train[:150]
 
 
 ### your code goes here
+clf = classifyTree(features_train, labels_train)
+
+pred = clf.predict(features_test)
+print(accuracy_score(pred, labels_test))
+
+fetimp = clf.feature_importances_
+fetlist = fetimp.tolist()
+relevant_indexes = [i for i in range(len(fetlist )) if fetlist[i]  > 0.2]
+#relevant_indexes = numpy.where(fetimp > 0.2)
+print relevant_indexes
+print fetlist[relevant_indexes[0]]
 
 
-
+print vectorizer.get_feature_names()[relevant_indexes[0]]
