@@ -11,3 +11,7 @@ def tree_classificator(features_train, labels_train, **kwargs):
     clf = tree.DecisionTreeClassifier(**kwargs)
     clf.fit(features_train, labels_train)
     return clf
+
+gauss_call = {"method": gaussian_classificator, "args": {}}
+tree_call = {"method": tree_classificator, "args": dict({"min_samples_split": 2})}
+classifiers = [tree_call, gauss_call]

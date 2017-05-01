@@ -77,9 +77,9 @@ def test_classifier(clf, dataset, feature_list, folds = 1000):
         return  {"accuracy": 0, "precision": 0, "recall": 0, "f1": 0, "f2": 0}
 
 
-CLF_PICKLE_FILENAME = "my_classifier.pkl"
-DATASET_PICKLE_FILENAME = "my_dataset.pkl"
-FEATURE_LIST_FILENAME = "my_feature_list.pkl"
+CLF_PICKLE_FILENAME = "data/my_classifier.pkl"
+DATASET_PICKLE_FILENAME = "data/my_dataset.pkl"
+FEATURE_LIST_FILENAME = "data/my_feature_list.pkl"
 
 def dump_classifier_and_data(clf, dataset, feature_list):
     with open(CLF_PICKLE_FILENAME, "w") as clf_outfile:
