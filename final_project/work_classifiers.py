@@ -1,4 +1,6 @@
 
+
+
 def gaussian_classificator(features_train, labels_train):
     from sklearn.naive_bayes import GaussianNB
     clf = GaussianNB()
@@ -12,6 +14,18 @@ def tree_classificator(features_train, labels_train, **kwargs):
     clf.fit(features_train, labels_train)
     return clf
 
+def svc_classificator(features_train, labels_train):
+    from sklearn.svm import SVC
+
+    ### your code goes here!
+    clf = SVC()
+    clf.fit(features_train, labels_train)
+    return clf
+
+
 gauss_call = {"method": gaussian_classificator, "args": {}}
+
 tree_call = {"method": tree_classificator, "args": dict({"min_samples_split": 2})}
-classifiers = [tree_call, gauss_call]
+svc_call = {"method": svc_classificator, "args": {}}
+
+classifiers = [ svc_call , tree_call, gauss_call]
