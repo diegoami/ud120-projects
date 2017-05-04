@@ -41,9 +41,11 @@ def calculate_accuracy_map(data_dict):
 
         #pdata_dict = filter_dictionary(data_dict, _["outlier_feature"], _["outliers_cut"])
         try:
-            result = test_feature(features_list=_["feature_list"], data_dict=data_dict,
+            pass
+            classif = create_classificator(features_list=_["feature_list"], data_dict=data_dict,
                                   classificator_method=_["classifier"]["method"], classifier_args=_["classifier"]["args"])
-
+            result = test_classifier( classif , data_dict, all_features)
+            #accuracy = result['accuracy']
             accuracy_map[("|".join(_["feature_list"]),_["classifier"]["method"].__name__,_["outliers_cut"])] = result['accuracy']
         except:
             traceback.print_exc()

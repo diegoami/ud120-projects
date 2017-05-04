@@ -71,7 +71,7 @@ def scale_data(data_dict, feature, percentage=0):
 
 def test_drive():
     data_dict = load_data_set()
-    for feature in features:
+    for feature in ana_features:
         data_dict = fill_NaN_with_average(data_dict ,feature)
         for perc in outliers_cuts :
             print(feature,  perc, range_feature(data_dict,feature,perc))
